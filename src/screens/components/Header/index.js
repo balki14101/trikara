@@ -5,28 +5,29 @@ import NotifyIcon from 'react-native-vector-icons/Ionicons';
 import colors from '../../../colors';
 import strings from '../../../strings';
 import styles from '../../../styles';
+import url from '../../../Url';
 class Header extends React.Component {
   render() {
     return (
       <View style={{marginTop: 8}}>
-        <View style={[styles.row]}>
-          <View style={{flex: 1.5}}>
-            <Image
-              style={{height: 50, width: 50}}
-              source={{uri: 'https://i.ibb.co/0j9KJ0Y/logo.jpg'}}
-            />
+        <View style={styles.row}>
+          <View style={{flex: 1.4}}>
+            <Image style={styles.logo} source={{uri: url}} />
           </View>
-          <View
-            style={[{backgroundColor: 'lightgreen', flex: 1.5}, styles.row]}>
+          <View style={[styles.row, styles.shadow, styles.addressView]}>
             <View>
-              <MapIcon name="map-marker" size={30} color={colors.primary} />
+              <MapIcon
+                name="map-marker"
+                size={20}
+                color={colors.primary_variant}
+              />
             </View>
             <View>
-              <Text>{strings.ADDRESS_1}</Text>
-              <Text>{strings.ADDRESS_2}</Text>
+              <Text style={styles.address1}>{strings.ADDRESS_1}</Text>
+              <Text style={styles.address2}>{strings.ADDRESS_2}</Text>
             </View>
           </View>
-          <View style={{backgroundColor: 'lightblue', flex: 0.5}}>
+          <View style={[styles.shadow, styles.notificationView]}>
             <NotifyIcon
               name="notifications-outline"
               size={30}
@@ -35,15 +36,7 @@ class Header extends React.Component {
           </View>
         </View>
         <View>
-          <Text
-            style={{
-              marginVertical: 10,
-              fontSize: 24,
-              fontWeight: 'bold',
-              color: colors.primary,
-            }}>
-            {strings.WELCOME}
-          </Text>
+          <Text style={styles.welcomeText}>{strings.WELCOME}</Text>
         </View>
       </View>
     );
