@@ -9,24 +9,65 @@ class Header extends React.Component {
   render() {
     return (
       <View style={{marginTop: 8}}>
-        <View style={[styles.row]}>
-          <View style={{flex: 1.5}}>
+        <View style={styles.row}>
+          <View style={{flex: 1.4}}>
             <Image
               style={{height: 50, width: 50}}
               source={{uri: 'https://i.ibb.co/0j9KJ0Y/logo.jpg'}}
             />
           </View>
           <View
-            style={[{backgroundColor: 'lightgreen', flex: 1.5}, styles.row]}>
+            style={[
+              {
+                borderRadius: 8,
+                backgroundColor: '#ffffff',
+                flex: 1.5,
+                padding: 4,
+                justifyContent: 'space-around',
+                alignItems: 'center',
+              },
+              styles.row,
+              styles.shadow,
+            ]}>
             <View>
-              <MapIcon name="map-marker" size={30} color={colors.primary} />
+              <MapIcon
+                name="map-marker"
+                size={20}
+                color={colors.primary_variant}
+              />
             </View>
             <View>
-              <Text>{strings.ADDRESS_1}</Text>
-              <Text>{strings.ADDRESS_2}</Text>
+              <Text style={{fontSize: 12, color: colors.primary}}>
+                {strings.ADDRESS_1}
+              </Text>
+              <Text
+                style={{
+                  fontSize: 12,
+                  color: colors.primary,
+                  fontWeight: 'bold',
+                }}>
+                {strings.ADDRESS_2}
+              </Text>
             </View>
           </View>
-          <View style={{backgroundColor: 'lightblue', flex: 0.5}}>
+          <View
+            style={{
+              backgroundColor: '#ffffff',
+              flex: 0.5,
+              justifyContent: 'center',
+              alignItems: 'center',
+              marginLeft: 10,
+              marginRight: 10,
+              borderRadius: 50,
+              shadowOffset: {
+                width: 0,
+                height: 6,
+              },
+              shadowOpacity: 0.37,
+              shadowRadius: 7.49,
+
+              elevation: 12,
+            }}>
             <NotifyIcon
               name="notifications-outline"
               size={30}

@@ -11,7 +11,7 @@ class ProfileCompleted extends Component {
     return (
       <View
         style={{
-          backgroundColor: '#A0EAFF',
+          backgroundColor: '#89CEE8',
           marginVertical: 10,
           borderRadius: 8,
           padding: 10,
