@@ -1,6 +1,9 @@
 # Trikara App
 
 Trikara App is developed in React-Native.
+## Screenshots
+<img src="https://github.com/balki14101/trikara/blob/master/shot1.jpeg?raw=true" width=300/>
+<img src="https://github.com/balki14101/trikara/blob/master/shot2.jpeg?raw=true" width=300/>
 
 ## Installation
 
