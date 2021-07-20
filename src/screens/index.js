@@ -7,6 +7,7 @@ import PopularCategories from './components/PopularCategories';
 import WorkerFinder from './components/WorkerFinder';
 import ProfileCompleted from './components/ProfileCompleted';
 import Support from './components/Support';
+import AllCategories from './components/AllCategories';
 
 const categories = [
   {title: 'plumber', icon: 'paint-brush', bgColor: '#54C5F7'},
@@ -28,6 +29,7 @@ class Home extends React.Component {
           <WorkerFinder />
           <ProfileCompleted />
           <Support />
+          <AllCategories />
         </SafeAreaView>
       </ScrollView>
     );
