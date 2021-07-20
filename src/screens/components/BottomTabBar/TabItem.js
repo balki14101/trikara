@@ -1,24 +1,23 @@
 import React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, Text, View, TouchableOpacity} from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import styles from '../../../styles';
 import colors from '../../../colors';
 
-export default function TabItem(props) {
+const TabItem = props => {
   const {title, icon, isSelected} = props.data;
-  const bgColor = isSelected ? '#89CEE8' : '#ffffff';
+  const bgColor = isSelected ? colors.lightblue : colors.white;
   const iconSize = isSelected ? 48 : 28;
   return (
-    <View style={{justifyContent: 'space-around', alignItems: 'center'}}>
-      <View
-        style={{
-          backgroundColor: bgColor,
-          borderRadius: 32,
-        }}>
-        <Icon name={icon} size={iconSize} color="#115067" />
+    <TouchableOpacity
+      onPress={() => props.onPress(title)}
+      style={styles.tabItemView}>
+      <View style={[{backgroundColor: bgColor}, styles.borderRadius]}>
+        <Icon name={icon} size={iconSize} color={colors.bluevariant2} />
       </View>
-      <Text style={{textAlign: 'center', color: '#808080'}}>{title}</Text>
-    </View>
+      <Text style={styles.itemTitle}>{title}</Text>
+    </TouchableOpacity>
   );
-}
+};
 
-const styles = StyleSheet.create({});
+export default TabItem;

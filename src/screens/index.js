@@ -31,15 +31,31 @@ const allcategories = [
   {title: 'Construction Worker'},
 ];
 
-const tabItems = [
-  {title: 'Search', icon: 'magnify', isSelected: true},
-  {title: 'AayCard', icon: 'card-account-details-outline', isSelected: false},
-  {title: 'Bookings', icon: 'briefcase-minus-outline', isSelected: false},
-  {title: 'AayTrack', icon: 'trackpad', isSelected: false},
-  {title: 'Account', icon: 'account-circle-outline', isSelected: false},
-];
-
 class Home extends React.Component {
+  state = {
+    tabItems: [
+      {title: 'Search', icon: 'magnify', isSelected: true},
+      {
+        title: 'AayCard',
+        icon: 'card-account-details-outline',
+        isSelected: false,
+      },
+      {title: 'Bookings', icon: 'briefcase-minus-outline', isSelected: false},
+      {title: 'AayTrack', icon: 'trackpad', isSelected: false},
+      {title: 'Account', icon: 'account-circle-outline', isSelected: false},
+    ],
+  };
+
+  handleOnPress = selectedTabTitle => {
+    let tabItems = [...this.state.tabItems];
+    tabItems.map(i => (i.isSelected = false));
+    tabItems.map(i => {
+      if (i.title === selectedTabTitle) {
+        i.isSelected = true;
+      }
+    });
+    this.setState({tabItems});
+  };
   render() {
     return (
       <View style={styles.container}>
@@ -52,22 +68,12 @@ class Home extends React.Component {
           <Support />
           <AllCategories items={allcategories} />
         </ScrollView>
-
-        <BottomTabBar items={tabItems} />
+        <BottomTabBar
+          items={this.state.tabItems}
+          onPress={this.handleOnPress}
+        />
       </View>
     );
   }
 }
 export default Home;
-
-{
-  /* <View style={{flex:1,backgroundColor:'#f6f6f6'}}>
-         <Image
-          style={{height:50,width:50}}
-          source={{uri:'https://i.ibb.co/0j9KJ0Y/logo.jpg'}}
-        />
-
-      <Text style={{color:'#000'}}> {'Welcome Vineeth'}</Text>
-
-      </View> */
-}

@@ -1,21 +1,15 @@
 import React, {Component} from 'react';
 import {Text, View} from 'react-native';
+import styles from '../../../styles';
 import TabItem from './TabItem';
 
-export class BottomTabBar extends Component {
+class BottomTabBar extends Component {
   render() {
-    const {items} = this.props;
+    const {items, onPress} = this.props;
     return (
-      <View
-        style={{
-          flexDirection: 'row',
-          height: 64,
-          backgroundColor: '#fff',
-          marginHorizontal: -16,
-          justifyContent: 'space-evenly',
-        }}>
+      <View style={styles.bottomTabView}>
         {items.map((item, index) => {
-          return <TabItem data={item} />;
+          return <TabItem key={index} data={item} onPress={onPress} />;
         })}
       </View>
     );
